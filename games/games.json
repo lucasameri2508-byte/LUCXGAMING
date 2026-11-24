@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "description": "Catálogo opcional de metadatos. Los juegos personales se importan desde la interfaz y se guardan en IndexedDB.",
+  "games": []
+}
