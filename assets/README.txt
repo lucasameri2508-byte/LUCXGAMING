@@ -1,1 +1,0 @@
-Carpeta reservada para el logo, iconos y portadas personalizadas. La interfaz actual genera portadas gráficas automáticamente.
