@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b16">
+<title>LUCXGAMING | Juegos online</title>
+<style>
+:root{--bg:#090b16;--panel:#111629;--panel2:#171e35;--line:#28314e;--text:#f4f6ff;--muted:#9ca8c7;--pink:#ff3d9a;--cyan:#35d9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#20204a 0,transparent 32%),radial-gradient(circle at 90% 10%,#35183b 0,transparent 27%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:5;background:#090b16df;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1250px;margin:auto;padding:16px 22px;display:flex;align-items:center;gap:18px;justify-content:space-between}
+.logo{font-size:23px;font-weight:1000;letter-spacing:1px}.logo span{color:var(--pink)}.tag{font-size:11px;color:var(--cyan);letter-spacing:3px;font-weight:800}
+main{max-width:1250px;margin:auto;padding:28px 22px 70px}
+.hero{padding:34px 30px;border:1px solid #34365f;border-radius:24px;background:linear-gradient(115deg,#171a36ed,#251632d9);box-shadow:0 18px 60px #0005;position:relative;overflow:hidden}
+.hero:after{content:"🎮";position:absolute;right:45px;top:12px;font-size:100px;opacity:.13;transform:rotate(-15deg)}
+.hero h1{font-size:clamp(30px,5vw,54px);margin:0 0 8px;line-height:1.04}.hero h1 span{color:var(--pink)}.hero p{color:#b8c2df;margin:0;max-width:600px;line-height:1.6}
+.tools{display:flex;gap:12px;margin:24px 0 18px;flex-wrap:wrap}
+input{flex:1;min-width:210px;background:#111629;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:white;font-size:15px;outline:none}input:focus{border-color:var(--cyan)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:#111629;color:#cbd4ec;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:700}.filter.active,.filter:hover{background:linear-gradient(90deg,#ff3d9a,#8d5cff);border-color:transparent;color:white}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:20px 0 14px}.section-title h2{font-size:19px;margin:0}.count{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:15px}
+.game{background:linear-gradient(160deg,#171e35,#101526);border:1px solid var(--line);border-radius:17px;overflow:hidden;cursor:pointer;transition:.18s;min-width:0}.game:hover{transform:translateY(-5px);border-color:#a34cff;box-shadow:0 12px 30px #0006}
+.thumb{height:125px;display:grid;place-items:center;font-size:58px;background:radial-gradient(circle at 50% 55%,#49346d,#1c2446 70%);position:relative}.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#10152688,transparent 60%)}
+.game-info{padding:13px}.game-info h3{margin:0 0 5px;font-size:15px}.game-info p{margin:0;color:var(--muted);font-size:12px;min-height:30px;line-height:1.4}.meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.category{font-size:10px;color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:1px}.play{font-size:11px;font-weight:900;color:white;background:linear-gradient(90deg,var(--pink),#8857ff);padding:7px 11px;border-radius:8px}
+footer{text-align:center;color:#7783a5;font-size:12px;padding:35px 15px;border-top:1px solid var(--line)}footer strong{color:#dce2f7}
+.modal{display:none;position:fixed;inset:0;background:#050711ed;z-index:20;padding:18px;align-items:center;justify-content:center}.modal.open{display:flex}.player{width:min(1100px,100%);height:min(780px,94vh);background:#101629;border:1px solid #45466d;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}.playerbar{padding:12px 15px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}.playerbar strong{flex:1}.action{border:1px solid var(--line);background:#1b2440;color:white;padding:9px 12px;border-radius:9px;cursor:pointer;text-decoration:none;font-size:12px}.close{background:#9d285f;border:0}.framewrap{flex:1;background:#070a13;position:relative}.framewrap iframe{width:100%;height:100%;border:0;background:white}.hint{padding:8px 12px;text-align:center;font-size:11px;color:#9ca8c7;background:#101629}
+@media(max-width:600px){.nav{padding:13px 16px}.hero{padding:25px 20px}.hero:after{right:8px;font-size:70px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.thumb{height:100px}.game-info{padding:10px}.game-info h3{font-size:13px}.modal{padding:6px}.player{height:96vh}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div><div class="logo">LUCX<span>GAMING</span></div><div class="tag">PLAY • DISCOVER • REPEAT</div></div><div style="font-size:12px;color:#9ca8c7">ARCADE ONLINE</div></div></header>
+<main>
+<section class="hero"><h1>EL UNIVERSO <span>GAMER</span></h1><p>Elegí un juego, entrá y divertite. Juegos web gratis para jugar directamente desde tu navegador.</p></section>
+<div class="tools"><input id="search" type="search" placeholder="🔎 Buscar juegos..." autocomplete="off"></div>
+<div class="filters" id="filters">
+<button class="filter active" data-cat="Todos">Todos</button><button class="filter" data-cat="Arcade">Arcade</button><button class="filter" data-cat="Acción">Acción</button><button class="filter" data-cat="Puzzle">Puzzle</button><button class="filter" data-cat="Clásicos">Clásicos</button><button class="filter" data-cat="Deportes">Deportes</button>
+</div>
+<div class="section-title"><h2>🔥 Juegos para jugar</h2><span class="count" id="count"></span></div>
+<div class="grid" id="grid"></div>
+</main>
+<footer><strong>LUCXGAMING</strong> · Hecho por Lucas Ameri · Juegos alojados por sus respectivos creadores</footer>
+<div class="modal" id="modal"><div class="player"><div class="playerbar"><strong id="playing">Jugando</strong><a class="action" id="external" target="_blank" rel="noopener">Abrir en otra pestaña ↗</a><button class="action close" id="close">✕ Cerrar</button></div><div class="framewrap"><iframe id="gameframe" allow="fullscreen; autoplay; gamepad" referrerpolicy="no-referrer"></iframe></div><div class="hint">Si el juego no carga dentro de LUCXGAMING, usá “Abrir en otra pestaña”.</div></div></div>
+<script>
+const base="https://mashukui.github.io/web-games/";
+const games=[
+["Snake","🐍","Clásicos","La serpiente clásica. Comé y crecé.","snake"],
+["2048","🧮","Puzzle","Uní los números hasta llegar a 2048.","2048"],
+["Star Defender","🚀","Acción","Esquivá y sobreviví a las oleadas.","star-defender"],
+["Dino Run","🦖","Arcade","Saltá obstáculos y corré sin parar.","dino-run"],
+["Cross Road","🐸","Arcade","Cruzá calles y ríos sin chocarte.","cross-road"],
+["Breakout","🧱","Arcade","Rompé todos los bloques con la pelota.","breakout"],
+["Paddle Duel","🏓","Clásicos","Pong contra la computadora.","paddle-duel"],
+["Ant Flap","🐜","Arcade","Volá entre las ramas sin chocarte.","ant-flap"],
+["Ant Jump","🦗","Arcade","Saltá cada vez más alto.","ant-jump"],
+["Block Drop","🧊","Puzzle","Encajá bloques y completá líneas.","block-drop"],
+["Stack Tower","🏗️","Arcade","Apilá bloques y construí una torre.","stack-tower"],
+["Whack-a-Mole","🔨","Arcade","Poné a prueba tus reflejos.","whack-a-mole"],
+["Tic Tac Toe","⭕","Clásicos","Tres en línea contra la IA.","tic-tac-toe"],
+["Connect Four","🔴","Clásicos","Conectá cuatro fichas para ganar.","connect-four"],
+["Minesweeper","💣","Puzzle","Encontrá las casillas seguras.","minesweeper"],
+["Memory Match","🃏","Puzzle","Encontrá todas las parejas.","memory-match"],
+["Piano Tap","🎹","Arcade","Tocá las teclas negras a toda velocidad.","piano-tap"],
+["Fruit Slice","🍉","Acción","Cortá frutas y sumá puntos.","fruit-slice"],
+["Mini Golf","⛳","Deportes","Embocá la pelota con la menor cantidad de golpes.","mini-golf"],
+["Penalty Kick","⚽","Deportes","Probá tu puntería en los penales.","penalty-kick"]
+].map(([name,emoji,cat,desc,slug])=>({name,emoji,cat,desc,url:base+slug+"/"}));
+let active="Todos";
+const grid=document.getElementById("grid"), search=document.getElementById("search"), count=document.getElementById("count");
+function render(){let q=search.value.toLowerCase();let list=games.filter(g=>(active==="Todos"||g.cat===active)&&(g.name+" "+g.desc+" "+g.cat).toLowerCase().includes(q));grid.innerHTML=list.map((g)=>`<article class="game" data-url="${g.url}" data-name="${g.name}"><div class="thumb">${g.emoji}</div><div class="game-info"><h3>${g.name}</h3><p>${g.desc}</p><div class="meta"><span class="category">${g.cat}</span><span class="play">JUGAR ▶</span></div></div></article>`).join("");count.textContent=list.length+" juegos";grid.querySelectorAll(".game").forEach(card=>card.addEventListener("click",()=>launch(card.dataset.name,card.dataset.url)));}
+function launch(name,url){document.getElementById("playing").textContent="🎮 "+name;document.getElementById("gameframe").src=url;document.getElementById("external").href=url;document.getElementById("modal").classList.add("open");}
+function close(){document.getElementById("modal").classList.remove("open");document.getElementById("gameframe").src="about:blank";}
+search.addEventListener("input",render);document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelector(".filter.active").classList.remove("active");b.classList.add("active");active=b.dataset.cat;render();}));document.getElementById("close").addEventListener("click",close);document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")close();});document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});render();
+</script>
+</body></html>
